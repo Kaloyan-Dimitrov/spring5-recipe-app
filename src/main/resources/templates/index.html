@@ -6,5 +6,39 @@
 </head>
 <body>
 <h1>My Recipes!</h1>
+
+<table>
+    <thead>
+    <tr>
+        <th>Recipe Description</th>
+        <th>Recipe Prep Time</th>
+        <th>Recipe Cook Time</th>
+        <th>Recipe Servings</th>
+        <th>Recipe Source</th>
+        <th>Recipe URL</th>
+        <th>Recipe Directions</th>
+        <th>Recipe Difficulty</th>
+        <th>Recipe Notes</th>
+        <th>Recipe Ingredients</th>
+        <th>Recipe Categories</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="recipe : ${recipes}">
+
+        <td th:text="${recipe.description}">Recipe Description</td>
+        <td th:text="${recipe.prepTime}">Recipe Prep Time</td>
+        <td th:text="${recipe.cookTime}">Recipe Cook Time</td>
+        <td th:text="${recipe.servings}">Recipe Servings</td>
+        <td th:text="${recipe.source}">Recipe Source</td>
+        <td th:text="${recipe.url}">Recipe URL</td>
+        <td th:text="${recipe.directions}">Recipe Directions</td>
+        <td th:text="${recipe.difficulty}">Recipe Difficulty</td>
+        <td th:text="${recipe.notes.getRecipeNotes()}">Recipe Notes</td>
+<!--        <td th:text="${recipe.ingredients.stream().map(ingr -> ingr.getDescription()).toArray()}">Recipe Ingredients</td>-->
+        <td th:text="${recipe.categories}">Recipe Categories</td>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>
