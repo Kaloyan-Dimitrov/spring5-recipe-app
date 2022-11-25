@@ -1,6 +1,7 @@
 package guru.springframework.domain;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -35,6 +36,17 @@ public class Recipe {
             joinColumns = @JoinColumn(name = "recipe_id"),
             inverseJoinColumns = @JoinColumn(name = "category_id"))
     private Set<Category> categories = new HashSet<>();
+
+    public Ingredient addIngredient(String description, BigDecimal amount, UnitOfMeasure uom) {
+        Ingredient ingredient = new Ingredient(description, amount, uom);
+        ingredient.setRecipe(this);
+        this.ingredients.add(ingredient);
+        return ingredient;
+    }
+    public void addIngredient(Ingredient ingredient) {
+        ingredient.setRecipe(this);
+        this.ingredients.add(ingredient);
+    }
 
 
     public String getDescription() {
@@ -115,6 +127,7 @@ public class Recipe {
 
     public void setNotes(Notes notes) {
         this.notes = notes;
+        notes.setRecipe(this);
     }
 
     public Set<Ingredient> getIngredients() {
@@ -141,7 +154,4 @@ public class Recipe {
         this.categories = categories;
     }
 
-    public void addIngredient(Ingredient ingredient) {
-        this.getIngredients().add(ingredient);
-    }
 }
