@@ -1,10 +1,12 @@
 package guru.springframework.domain;
 
-import lombok.*;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 import org.hibernate.Hibernate;
 
 import javax.persistence.*;
-import java.math.BigDecimal;
 import java.util.Objects;
 
 @Getter
@@ -18,7 +20,7 @@ public class Ingredient {
     private Long id;
 
     private String description;
-    private BigDecimal amount;
+    private Double amount;
 
     @ManyToOne
     private Recipe recipe;
@@ -26,7 +28,7 @@ public class Ingredient {
     @OneToOne(fetch = FetchType.EAGER)
     private UnitOfMeasure uom;
 
-    public Ingredient(String description, BigDecimal amount, UnitOfMeasure uom) {
+    public Ingredient(String description, Double amount, UnitOfMeasure uom) {
         this.amount = amount;
         this.description = description;
         this.uom = uom;

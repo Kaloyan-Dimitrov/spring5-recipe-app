@@ -7,8 +7,6 @@ import guru.springframework.domain.UnitOfMeasure;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.math.BigDecimal;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
@@ -17,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class IngredientToIngredientCommandTest {
 
     public static final Recipe RECIPE = new Recipe();
-    public static final BigDecimal AMOUNT = new BigDecimal("1");
+    public static final Double AMOUNT = 1.0;
     public static final String DESCRIPTION = "Cheeseburger";
     public static final Long UOM_ID = 2L;
     public static final Long ID_VALUE = 1L;

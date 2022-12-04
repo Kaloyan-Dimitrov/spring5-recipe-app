@@ -1,10 +1,12 @@
 package guru.springframework.domain;
 
-import lombok.*;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 import org.hibernate.Hibernate;
 
 import javax.persistence.*;
-import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -47,11 +49,10 @@ public class Recipe {
     @ToString.Exclude
     private Set<Category> categories = new HashSet<>();
 
-    public Ingredient addIngredient(String description, BigDecimal amount, UnitOfMeasure uom) {
+    public void addIngredient(String description, Double amount, UnitOfMeasure uom) {
         Ingredient ingredient = new Ingredient(description, amount, uom);
         ingredient.setRecipe(this);
         this.ingredients.add(ingredient);
-        return ingredient;
     }
 
     public void addIngredient(Ingredient ingredient) {
@@ -61,7 +62,9 @@ public class Recipe {
 
     public void setNotes(Notes notes) {
         this.notes = notes;
-        notes.setRecipe(this);
+        if(notes != null) {
+            notes.setRecipe(this);
+        }
     }
 
     @Override
