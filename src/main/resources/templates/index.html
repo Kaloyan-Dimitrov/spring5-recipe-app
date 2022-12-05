@@ -14,12 +14,13 @@
 <body>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-offset-3">
+            <div class="col-md-6 col-md-offset-3">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
                         <h1>My Recipes!</h1>
                     </div>
                     <div class="panel-body">
+                        <!--/*@thymesVar id="recipe" type="guru.springframework.domain.Recipe"*/-->
                         <div class="table-responsive" th:if="${not #lists.isEmpty(recipes)}">
                             <table class="table table-hover">
                                 <thead class="thead-inverse">
@@ -27,6 +28,7 @@
                                     <th>Recipe ID</th>
                                     <th>Recipe Description</th>
                                     <th>View</th>
+                                    <th>Update</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -34,7 +36,10 @@
                                     <td th:text="${recipe.id}">Recipe Prep Time</td>
                                     <td th:text="${recipe.description}">Recipe Description</td>
                                     <td>
-                                        <a href="#" th:href="@{'recipe/show/' + ${recipe.id}}">View</a>
+                                        <a href="#" th:href="@{'recipe/' + ${recipe.id} + '/show/'}">View</a>
+                                    </td>
+                                    <td>
+                                        <a href="#" th:href="@{'recipe/' + ${recipe.id} + '/update/'}">Update</a>
                                     </td>
                                 </tr>
                                 </tbody>

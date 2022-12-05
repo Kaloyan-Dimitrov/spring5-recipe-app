@@ -40,21 +40,21 @@
                 <h5>Prep Time:</h5>
               </div>
               <div class="col-md-3">
-                <p th:text="${recipe.prepTime}"></p>
+                <p th:text="${(recipe.prepTime) + ' Min'}"></p>
               </div>
-              <div class="col-md-3">
-                <h5>Difficulty:</h5>
-              </div>
-              <div class="col-md-3">
-                <p th:text="${recipe.difficulty.toString()}"></p>
-              </div>
+<!--              <div class="col-md-3">-->
+<!--                <h5>Difficulty:</h5>-->
+<!--              </div>-->
+<!--              <div class="col-md-3">-->
+<!--                <p th:text="${recipe.difficulty.toString()}"></p>-->
+<!--              </div>-->
             </div>
             <div class="row">
               <div class="col-md-3">
                 <h5>Cooktime:</h5>
               </div>
               <div class="col-md-3">
-                <p th:text="${recipe.cookTime}"></p>
+                <p th:text="${(recipe.cookTime) +  ' Min'}"></p>
               </div>
               <div class="col-md-3">
                 <h5>Servings:</h5>
