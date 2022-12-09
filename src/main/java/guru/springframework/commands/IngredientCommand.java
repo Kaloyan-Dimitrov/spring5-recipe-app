@@ -12,5 +12,5 @@ public class IngredientCommand {
     private String description;
     private Double amount;
     private UnitOfMeasureCommand uom;
-    private RecipeCommand recipe;
+    private Long recipeId;
 }
